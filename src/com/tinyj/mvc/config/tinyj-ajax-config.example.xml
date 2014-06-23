@@ -1,0 +1,17 @@
+<!-- 
+	tinyj ajax configuration file example
+	***************************************** 
+	rename this file to tinyj-ajax-config.xml, put it under your /WEB-INF folder in your web app
+ 	and make changes to the below configuration as needed 
+ -->
+<tinyj-ajax-config>
+
+	<!--  define all action objects -->
+	<ajax-action-mappings>
+	
+		<ajax-action path="doSomething" type="com.tiny.test.example.MyAjaxAction"/>
+		<ajax-action path="doFoo" type="com.tinyj.test.example.FooAjaxAction"/>
+		
+	</ajax-action-mappings>	
+	
+</tinyj-ajax-config>

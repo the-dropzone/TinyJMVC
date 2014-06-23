@@ -1,0 +1,43 @@
+<!-- 
+	tinyj mvc configuration file example
+	***************************************** 
+	rename this file to tinyj-mvc-config.xml, put it under your /WEB-INF folder in your web app
+ 	and make changes to the below configuration as needed 
+ -->
+<tinyj-mvc-config>
+
+	<!--  define all action objects and their result forward mappings -->
+	<action-mappings>
+		<action path="bla/foo" type="com.tinyj.test.example.MyAction">
+			<forward redirect="true" name="valid" path="bla/bar.jsp"/>
+			<forward name="invalid" path="bla/foo.jsp"/>
+		</action>
+		
+		<action path="bla/paa" type="com.tinyj.test.example.MyActionLess">
+			<forward name="valid" path="bla/bar.jsp"/>
+			<forward name="invalid" path="bla/foo.jsp"/>
+		</action>
+		
+		<action path="bla/bar" type="com.tinyj.test.example.AnotherAction">
+			<forward name="valid" backtocaller="true"/>
+			<forward name="invalid" path="bla/error.jsp" avoidhistorysave="true"/>
+		</action>
+	</action-mappings>
+
+
+	<!--  define all global result forward mappings -->
+	<global-forwards>
+		<forward name="valid" path="bla/bar.jsp"/>
+	</global-forwards>
+	
+	
+	<!--  define all javabeans used by your web app -->
+	<javabean-mappings>
+		<javabean name="person" type="com.tinyj.test.example.beans.Person" scope="request"/>
+		<javabean name="employee" type="com.tinyj.test.example.beans.Employee" scope="session"/>
+		<javabean name="animal" type="com.tinyj.test.example.beans.Animal" scope="application"/>
+	</javabean-mappings>	
+	
+	<page-history-stack size="20"/>
+	
+</tinyj-mvc-config>
